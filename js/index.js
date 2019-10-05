@@ -25,11 +25,13 @@ while (count < navItems.length){
   navItems[count].addEventListener('mouseover', (e)=>{
 
     e.target.style.backgroundColor = 'red';
+    e.stopPropagation();
   });
 
   navItems[count].addEventListener('mouseout', (e)=>{
 
     e.target.style.backgroundColor = 'white';
+    e.stopPropagation();
   });
 
   navItems[count].addEventListener('click', (e)=>{
@@ -81,12 +83,16 @@ while (count < text.length){
 count = 0;
 
 let boxes = document.querySelectorAll("div");
+let sections = document.querySelectorAll("section");
 
 while (count < boxes.length){
   boxes[count].addEventListener('dblclick', (e)=>{
 
     e.target.style.display = 'none';
+    //e.stopPropagation();
   });
+
+
 
   boxes[count].addEventListener('contextmenu', (e)=>{
 
@@ -95,11 +101,17 @@ while (count < boxes.length){
 
   boxes[count].addEventListener('mouseover', (e)=>{
 
-    e.target.style.backgroundColor = 'black';
+    e.target.style.backgroundColor = 'white';
+    //e.stopPropagation();
   });
 
   count++;
 };
+
+sections[0].addEventListener('dblclick', (e)=>{
+
+  e.target.style.backgroundColor = 'blue';
+});
 
 count = 0;
 
@@ -108,4 +120,5 @@ let page = document.querySelector('body');
 page.addEventListener('dblclick', (e)=>{
 
   e.target.style.backgroundColor = 'black';
+  e.stopPropagation();
 });
